@@ -1,6 +1,9 @@
 import React from 'react';
 import { IFitLog } from "../../../type";
 import Image from "next/image";
+import PlanButton from "../../../../src/components/buttons/PlanButton";
+import SaveButton from "../../../../src/components/buttons/SaveButton";
+import HomeButton from '@/src/components/buttons/HomeButton';
 
 interface IBookDetailsProps {
     params: Promise<{ id: string }>;
@@ -190,13 +193,12 @@ const page = async ({ params }: IBookDetailsProps) => {
                         {/* ================= BUTTONS ================= */}
                         <div className="mt-7 flex flex-wrap gap-3">
 
-                            <button className="rounded-lg bg-lime-400 px-5 py-3 text-sm font-bold text-black transition hover:bg-lime-300">
-                                ＋ Add to todays plan
-                            </button>
 
-                            <button className="rounded-lg border border-gray-700 px-5 py-3 text-sm font-medium text-gray-300 transition hover:border-gray-500 hover:text-white">
-                                ♡ Save for later
-                            </button>
+                            <PlanButton log={log} />
+                            <SaveButton log={log} />
+                           <HomeButton/>
+
+
 
                         </div>
 

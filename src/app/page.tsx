@@ -1,4 +1,5 @@
 
+
 import Banner from '../components/homepage/Banner';
 import FitLogs from '../components/homepage/FitLogs';
 
