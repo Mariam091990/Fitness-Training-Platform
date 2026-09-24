@@ -1,6 +1,6 @@
 
-import Banner from '../components/shared/homepage/Banner';
-import FitLogs from '../components/shared/homepage/FitLogs';
+import Banner from '../components/homepage/Banner';
+import FitLogs from '../components/homepage/FitLogs';
 
 const page = () => {
   return (

@@ -1,6 +1,6 @@
 
-import FitLogsCard from "./FitLogsCard";
-import { IFitLog } from "../../../type";
+import FitLogsCard from "../shared/FitLogsCard";
+import { IFitLog } from "../../type";
 import type { ComponentType } from "react";
 
 const FitLogsCardWithLog = FitLogsCard as ComponentType<{ log: IFitLog }>;

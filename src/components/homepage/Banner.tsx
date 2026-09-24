@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import image from "../../../../public/assets/banner.png";
+import image from "../../../public/assets/banner.png";
 
 
 const Banner = () => {

@@ -1,6 +1,6 @@
 
 import Image from "next/image";
-import { IFitLog } from "../../../type";
+import { IFitLog } from "../../type";
 
 
 import React from 'react';
@@ -22,7 +22,7 @@ const FitLogsCard = ({ log }: { log: IFitLog }) => {
                         alt={log.name}
                         width={700}
                         height={700}
-                       
+
                         className="h-41.25 w-full object-cover transition-transform duration-500 ease-in-out hover:scale-110"
                     /></Link>
 
