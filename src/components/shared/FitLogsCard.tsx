@@ -16,7 +16,7 @@ const FitLogsCard = ({ log }: { log: IFitLog }) => {
             <div className="w-full overflow-hidden rounded-xl border border-gray-800 bg-[#151515]">
 
                 {/* Workout Image */}
-                <Link href={`${log.id}`}>
+                <Link href={`/FitLogsDetails/${log.id}`}>
                     <Image
                         src={log.image}
                         alt={log.name}
