@@ -19,7 +19,7 @@ const FitLogDetails = async () => {
 };
 const page = async ({ params }: IBookDetailsProps) => {
     const { id } = await params;
-    //    the rule of dynamic routes is that it takes props as params
+    //    the rule of dynamic routes in next.js is that it takes props as params
     //   
     //    params always returns a promise
     //    so we need to await*** it
@@ -196,7 +196,7 @@ const page = async ({ params }: IBookDetailsProps) => {
 
                             <PlanButton log={log} />
                             <SaveButton log={log} />
-                           <HomeButton/>
+                            <HomeButton/>
 
 
 

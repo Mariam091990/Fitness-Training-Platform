@@ -1,26 +1,34 @@
 "use client";
 
-import React, { createContext, useState } from 'react';
+import React, {
+    createContext,
+    useState,
+} from "react";
 
- export const LogsContext = createContext({});
+import { IFitLog } from "../type";
 
+interface ILogsContext {
+    plan: IFitLog[];
+    setPlan: React.Dispatch<React.SetStateAction<IFitLog[]>>;
+    saved: IFitLog[];
+    setSaved: React.Dispatch<React.SetStateAction<IFitLog[]>>;
+}
 
-const LogsProvider = ({ children }: { children: React.ReactNode }) => {
+export const LogsContext = createContext <ILogsContext | undefined> (undefined);
 
-    const [plan, setPlan] = useState([]);
-    const [saved, setSaved] = useState([]);
+const LogsProvider = ({children}: { children: React.ReactNode;}) => {
+    const [plan, setPlan] = useState<IFitLog[]>([]);
+    const [saved, setSaved] = useState<IFitLog[]>([]);
 
-    const shareedData = {
+    const sharedData = {
         plan,
         setPlan,
         saved,
-        setSaved
-    }
-
+        setSaved,
+    };
 
     return (
-
-        <LogsContext.Provider value={shareedData}>
+        <LogsContext.Provider value={sharedData}>
             {children}
         </LogsContext.Provider>
     );

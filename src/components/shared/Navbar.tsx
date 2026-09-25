@@ -1,7 +1,8 @@
 
-//import Link from "next/link";
 import image from "../../../public/assets/logo.png";
 import Image from "next/image";
+import Link from "next/link";
+
 const Navbar = () => {
     return (
         <div>
@@ -25,13 +26,18 @@ const Navbar = () => {
                     <div className="flex gap-1 items-center">
                         <Image src={image} alt="logo" className="h-7 w-5 rounded-full" />
 
-                    </div>     <a className="btn btn-ghost text-md">FITLOG</a>
+                    </div>
+                    <Link href="/" className="btn btn-ghost text-md">FITLOG</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
-                        <li className="font-bold"><a>Workouts</a></li>
+                        <li className="font-bold">
+                            <Link href="/plan-lists" className="font-bold">Workouts</Link>
+                        </li>
 
-                        <li className="font-bold"><a>My Plans</a></li>
+                        <li className="font-bold">
+                            <Link href="/plan-lists" className="font-bold">My Plans</Link>
+                        </li>
                     </ul>
                 </div>
                 <div className="navbar-end flex gap-2  ">

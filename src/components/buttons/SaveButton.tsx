@@ -4,14 +4,24 @@ import { useContext } from "react";
 import { LogsContext } from "../../context/LogsContext";
 
 import { IFitLog } from "../../type";
+import { toast } from "react-toastify";
 
-const SaveButton = ({log}: {log: IFitLog}) => {
+const SaveButton = ({ log }: { log: IFitLog }) => {
 
-    const {saved, setSaved} = useContext(LogsContext);
+    const logsContext = useContext(LogsContext);
+
+    if (!logsContext) {
+        throw new Error("SaveButton must be used within a LogsProvider");
+    }
+
+    const { saved, setSaved } = logsContext;
+
 
     const handleClickSave = () => {
         setSaved([...saved, log]);
-        console.log("saved: ", saved);
+        toast.success("Saved for later");
+
+        // console.log("saved: ", saved);
     }
 
     return (
