@@ -18,13 +18,14 @@ const Planlistspage = () => {
     const [activeTab, setActiveTab]
         = useState<"plan" | "saved">("plan");
 
+
     const [sortBy, setSortBy] =
         useState<"duration" | "calories" | "rating">();
 
     // console.log("plan:", plan);
     // console.log("saved:", saved);
 
-    const [completedIds, setCompleted] = useState<number[]>([]);
+
 
     // ================= SORT =================
 
@@ -73,6 +74,21 @@ const Planlistspage = () => {
         0
     );
 
+
+    const handleDone = (id: number) => {
+        setPlan((prev) =>
+            prev.map((log) =>
+                log.id === id
+                    ? { ...log, completed: true }
+                    : log
+            )
+        );
+
+        toast.success("Workout completed!");
+    };
+
+
+
     const handleDelete = (id: number) => {
         if (activeTab === "plan") {
             const restOfthePlan = plan.filter((log) => log.id !== id)
@@ -87,13 +103,7 @@ const Planlistspage = () => {
     };
 
 
-    const handleDone = async (id: number) => {
 
-        setCompleted([...completedIds, id]);
-        toast.success("Workout marked as done");
-
-
-    };
 
 
 
@@ -293,11 +303,13 @@ const Planlistspage = () => {
                                     </button>
 
 
-                                    <button className={`btn btn-sm w-fit rounded-2xl border-gray-700  p-1.5 text-bold 
-                                    ${completedIds.includes(log.id) ? "bg-lime-400" : "bg-gray-700"} `} onClick={() => handleDone(log.id)}>
-                                        {`${completedIds.includes(log.id) ? "Done" : "Mark as Done"}`}
+                                    <button
+                                        onClick={() => handleDone(log.id)}
+                                        className="btn btn-sm rounded-2xl bg-lime-400"
+                                    >
+                                        {log.completed ? "Done" : "Mark as Done"}
                                     </button>
-
+                                    
 
                                     <button onClick={() => handleDelete(log.id)} className="btn btn-sm w-fit">Delete
 
