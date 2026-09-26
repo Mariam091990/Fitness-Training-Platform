@@ -10,23 +10,37 @@ const SaveButton = ({ log }: { log: IFitLog }) => {
 
     const logsContext = useContext(LogsContext);
 
-    if (!logsContext) {
-        throw new Error("SaveButton must be used within a LogsProvider");
-    }
-
-    const { saved, setSaved } = logsContext;
 
 
-    const handleClickSave = () => {
+    const { saved, setSaved, plan } = logsContext as {
+        plan: IFitLog[];
+        saved: IFitLog[];
+        setSaved: React.Dispatch<React.SetStateAction<IFitLog[]>>;
+    };
+
+
+    const handleClickSave = (log: IFitLog) => {
+        const alreadyInSaved = saved.some((item) => item.id === log.id);
+        const alreadyInPlan = plan.some((item) => item.id === log.id);
+
+        if (alreadyInSaved ) {
+            toast.error("This workout is already in your saved plan");
+            return;
+        }
+        if (alreadyInPlan) {
+            toast.error("This workout is already in your plan");
+            return;
+        }   
         setSaved([...saved, log]);
-        toast.success("Saved for later");
+        toast.success(`${log.name} saved for later`);
 
-        // console.log("saved: ", saved);
+
     }
 
     return (
 
-        <button className="rounded-lg border border-gray-700 px-5 py-3 text-sm font-medium text-gray-300 transition hover:border-gray-500 hover:text-white" onClick={() => handleClickSave()}>
+        <button className="rounded-lg border border-gray-700 px-5 py-3 text-sm font-medium text-gray-300 transition hover:border-gray-500 hover:text-white"
+            onClick={() => handleClickSave(log)}>
 
 
             ＋ Save for later

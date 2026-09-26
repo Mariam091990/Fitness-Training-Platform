@@ -1,4 +1,5 @@
 export interface IFitLog {
+ 
   id: number;
   name: string;
   image: string;
