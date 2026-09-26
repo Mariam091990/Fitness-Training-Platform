@@ -15,7 +15,7 @@ const Planlistspage = () => {
     };
 
     const [activeTab, setActiveTab]
-        = useState<"saved"|"plan" >("saved");
+        = useState<"saved" | "plan">("saved");
 
     const [sortBy, setSortBy] =
         useState<"duration" | "calories" | "rating">();
@@ -46,7 +46,7 @@ const Planlistspage = () => {
 
     // ================= STATISTICS =================
 
- 
+
 
     const savetotalExercises = saved.length;
 
@@ -60,7 +60,7 @@ const Planlistspage = () => {
         0
     );
 
-       const totalExercises = plan.length;
+    const totalExercises = plan.length;
 
     const totalMinutes = plan.reduce(
         (total, log) => total + log.duration,
@@ -301,6 +301,10 @@ const Planlistspage = () => {
                                 ? "Start by adding your first workout to your plan"
                                 : "Start saving workouts for later"}
                         </p>
+                        <button className="btn btn-md btn-primary border-gray-500 bg-lime-700 mt-5 text-md font-bold text-white rounded-2xl  hover:bg-emerald-950">
+                            <Link href="/"  >
+                                Go to workouts
+                            </Link> </button>
 
                     </div>
 

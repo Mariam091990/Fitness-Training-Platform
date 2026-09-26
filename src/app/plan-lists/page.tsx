@@ -14,6 +14,7 @@ const Planlistspage = () => {
         setSaved: React.Dispatch<React.SetStateAction<IFitLog[]>>;
     };
 
+     
     const [activeTab, setActiveTab]
         = useState<"plan" | "saved">("plan");
 
@@ -73,9 +74,9 @@ const Planlistspage = () => {
     const handleDelete = (id: number) => {
         if (activeTab === "plan") {
             const restOfthePlan = plan.filter((log) => log.id !== id)
-             toast.success("Workout deleted from plan");
+            toast.success("Workout deleted from plan");
             setPlan(restOfthePlan);
-           
+
         } else {
             const restOfthesSaved = saved.filter((log) => log.id !== id)
             setSaved(restOfthesSaved);
@@ -274,7 +275,7 @@ const Planlistspage = () => {
                                         <Link href={`FitLogsDetails/${log.id}`}  >
                                             View Details
                                         </Link> </button>
-                                        <button className= "btn btn-sm w-fit rounded-2xl border-gray-700 bg-lime-400 p-1.5 text-bold"> Mark as Done</button>
+                                    <button className="btn btn-sm w-fit rounded-2xl border-gray-700 bg-lime-400 p-1.5 text-bold"> Mark as Done</button>
                                     <button onClick={() => handleDelete(log.id)} className="btn btn-sm w-fit">Delete</button>
                                 </div>
                             </div>
@@ -298,6 +299,10 @@ const Planlistspage = () => {
                                 ? "Start by adding your first workout to your plan"
                                 : "Start saving workouts for later"}
                         </p>
+                        <button className="btn btn-md btn-primary border-gray-500 bg-lime-700 mt-5 text-md font-bold text-white rounded-2xl  hover:bg-emerald-950">
+                            <Link href="/"  >
+                                Go to workouts
+                            </Link> </button>
 
                     </div>
 

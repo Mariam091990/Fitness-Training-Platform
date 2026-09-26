@@ -3,8 +3,8 @@
 FitLog is a workout management web application where users can explore different workouts, view workout details, create their daily workout plan, and save workouts for later.
 
 ## 🚀 Live Demo
+https://fitness-training-platform.vercel.app
 
-fitness-training-platform.vercel.app
 
 ## 📂 GitHub Repository
 
