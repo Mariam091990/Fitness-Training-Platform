@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🏋️ FitLog - Workout Plan
 
-## Getting Started
+FitLog is a workout management web application where users can explore different workouts, view workout details, create their daily workout plan, and save workouts for later.
 
-First, run the development server:
+## 🚀 Live Demo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+fitness-training-platform.vercel.app
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📂 GitHub Repository
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+https://github.com/Mariam091990/Fitness-Training-Platform.git
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## ✨ Features
 
-To learn more about Next.js, take a look at the following resources:
+- 🏋️ Browse different workout exercises
+- 🔎 View detailed information about each workout
+- 📋 Add workouts to today's plan
+- ❤️ Save workouts for later
+- 🚫 Prevent duplicate workouts in Plan and Saved lists
+- 🔢 Display Plan and Saved workout counts in the Navbar
+- 📊 View workout statistics
+  - Total exercises
+  - Total workout duration
+  - Total calories burned
+- 🔀 Sort workouts by:
+  - Duration
+  - Calories
+  - Rating
+- 🗑️ Delete workouts from Plan or Saved lists
+- 📱 Responsive design for mobile, tablet, and desktop
+- 🟢 Active navigation highlighting
+- 🔔 Toast notifications for user actions
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🛠️ Technologies Used
 
-## Deploy on Vercel
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- DaisyUI
+- React Toastify
+- Context API
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+
+src/
+├── app/
+│   ├── save-list/
+│   ├── plan-lists/
+│   ├── workouts/
+│   │   └── [id]/
+│   └── ...
+│
+├── components/
+│   ├── buttons/
+│   │   ├── PlanButton.tsx
+│   │   ├── SaveButton.tsx
+│   │   ├── NavPlanButton.tsx
+│   │   └── NavSavedButton.tsx
+│   ├── Navbar.tsx
+│   └── ...
+│
+├── context/
+│   └── LogsContext.tsx
+│
+└── type/
+    └── index.ts

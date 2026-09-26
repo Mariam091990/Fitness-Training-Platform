@@ -81,7 +81,7 @@ const Navbar = () => {
 
                     <Link
                         href="/"
-                        className="btn btn-ghost text-md text-amber-50"
+                        className="btn btn-ghost text-md ml-1 text-amber-50"
                     >
                         FITLOG
                     </Link>
