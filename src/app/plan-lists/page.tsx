@@ -14,7 +14,7 @@ const Planlistspage = () => {
         setSaved: React.Dispatch<React.SetStateAction<IFitLog[]>>;
     };
 
-     
+
     const [activeTab, setActiveTab]
         = useState<"plan" | "saved">("plan");
 
@@ -23,6 +23,8 @@ const Planlistspage = () => {
 
     // console.log("plan:", plan);
     // console.log("saved:", saved);
+
+    const [completedIds, setCompleted] = useState<number[]>([]);
 
     // ================= SORT =================
 
@@ -83,6 +85,19 @@ const Planlistspage = () => {
             toast.success("Workout deleted from saved");
         }
     };
+
+
+    const handleDone = async (id: number) => {
+
+        setCompleted([...completedIds, id]);
+        toast.success("Workout marked as done");
+
+
+    };
+
+
+
+
     return (
         <div className="container mx-auto mb-10 px-4 ">
 
@@ -274,9 +289,18 @@ const Planlistspage = () => {
                                     <button className="btn btn-sm w-fit">
                                         <Link href={`FitLogsDetails/${log.id}`}  >
                                             View Details
-                                        </Link> </button>
-                                    <button className="btn btn-sm w-fit rounded-2xl border-gray-700 bg-lime-400 p-1.5 text-bold"> Mark as Done</button>
-                                    <button onClick={() => handleDelete(log.id)} className="btn btn-sm w-fit">Delete</button>
+                                        </Link>
+                                    </button>
+
+                                    <button className={`btn btn-sm w-fit rounded-2xl border-gray-700  p-1.5 text-bold 
+                                    ${completedIds.includes(log.id) ? "bg-lime-400" : "bg-gray-700"} 
+                                   `}
+                                        onClick={() => handleDone(log.id)}> {`${completedIds.includes(log.id) ? "Done" : "Mark as Done"}`}
+
+                                    </button>
+                                    <button onClick={() => handleDelete(log.id)} className="btn btn-sm w-fit">Delete
+
+                                    </button>
                                 </div>
                             </div>
 
