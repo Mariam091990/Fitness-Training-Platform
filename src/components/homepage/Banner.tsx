@@ -6,7 +6,7 @@ import image from "../../../public/assets/banner.png";
 const Banner = () => {
     return (
         <div className="container mx-auto mb-10">
-            <div className="bg-base-500 rounded-2xl shadow-lg">
+            <div className="bg-gray rounded-2xl shadow-lg">
                 <div className=" grid justify-items-center md:grid-cols-2 gap-20  p-10">
 
                     <div className=" grid grid-rows-4 gap-1">
@@ -21,7 +21,7 @@ const Banner = () => {
                         </p>
                         <div>
 
-                            <button className=" btn w-[30%] "> Get Started</button>
+                            <button className=" btn w-[30%]  bg-lime-400 rounded-2xl "> Get Started</button>
 
 
                         </div>

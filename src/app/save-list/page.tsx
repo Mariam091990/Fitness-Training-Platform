@@ -15,7 +15,7 @@ const Planlistspage = () => {
     };
 
     const [activeTab, setActiveTab]
-        = useState<"plan" | "saved">("plan");
+        = useState<"saved"|"plan" >("saved");
 
     const [sortBy, setSortBy] =
         useState<"duration" | "calories" | "rating">();
@@ -26,7 +26,7 @@ const Planlistspage = () => {
     // ================= SORT =================
 
     const currentLogs =
-        activeTab === "plan" ? [...plan] : [...saved];
+        activeTab === "saved" ? [...saved] : [...plan];
 
     const sortedLogs = currentLogs.sort((a, b) => {
         if (sortBy === "duration") {
@@ -46,17 +46,7 @@ const Planlistspage = () => {
 
     // ================= STATISTICS =================
 
-    const totalExercises = plan.length;
-
-    const totalMinutes = plan.reduce(
-        (total, log) => total + log.duration,
-        0
-    );
-
-    const totalCalories = plan.reduce(
-        (total, log) => total + log.caloriesBurned,
-        0
-    );
+ 
 
     const savetotalExercises = saved.length;
 
@@ -70,12 +60,23 @@ const Planlistspage = () => {
         0
     );
 
+       const totalExercises = plan.length;
+
+    const totalMinutes = plan.reduce(
+        (total, log) => total + log.duration,
+        0
+    );
+
+    const totalCalories = plan.reduce(
+        (total, log) => total + log.caloriesBurned,
+        0
+    );
     const handleDelete = (id: number) => {
         if (activeTab === "plan") {
             const restOfthePlan = plan.filter((log) => log.id !== id)
-             toast.success("Workout deleted from plan");
+            toast.success("Workout deleted from plan");
             setPlan(restOfthePlan);
-           
+
         } else {
             const restOfthesSaved = saved.filter((log) => log.id !== id)
             setSaved(restOfthesSaved);
@@ -146,16 +147,7 @@ const Planlistspage = () => {
 
                 <div className="flex w-fit bg-black rounded-xl border border-gray-800 p-1">
 
-                    <button
-                        onClick={() => setActiveTab("plan")}
 
-                        className={`rounded-lg px-5 py-2 text-sm font-bold transition ${activeTab === "plan"
-                            ? "bg-[#151820] text-white shadow"
-                            : "text-gray-500 hover:text-white"
-                            }`}>
-
-                        Todays plan ({plan.length})
-                    </button>
 
                     <button
                         onClick={() => setActiveTab("saved")}
@@ -165,6 +157,17 @@ const Planlistspage = () => {
                             }`}
                     >
                         Saved plan ({saved.length})
+                    </button>
+
+                    <button
+                        onClick={() => setActiveTab("plan")}
+
+                        className={`rounded-lg px-5 py-2 text-sm font-bold transition ${activeTab === "plan"
+                            ? "bg-[#151820] text-white shadow"
+                            : "text-gray-500 hover:text-white"
+                            }`}>
+
+                        Todays plan ({plan.length})
                     </button>
 
                 </div>
@@ -274,7 +277,7 @@ const Planlistspage = () => {
                                         <Link href={`FitLogsDetails/${log.id}`}  >
                                             View Details
                                         </Link> </button>
-                                        <button className= "btn btn-sm w-fit rounded-2xl border-gray-700 bg-lime-400 p-1.5 text-bold"> Mark as Done</button>
+
                                     <button onClick={() => handleDelete(log.id)} className="btn btn-sm w-fit">Delete</button>
                                 </div>
                             </div>
