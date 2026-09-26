@@ -12,9 +12,15 @@ interface IBookDetailsProps {
 
 const FitLogDetails = async () => {
 
-    const response = await fetch("https://api.abcz.workers.dev/api/fitlog");
-    const data = await response.json();
-    return data;
+    try {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_FITLOG_API}`);
+        const data = await response.json();
+        return data;
+    } catch (e) {
+        console.error(e);
+
+        return [];
+    }   
 
 };
 const page = async ({ params }: IBookDetailsProps) => {
