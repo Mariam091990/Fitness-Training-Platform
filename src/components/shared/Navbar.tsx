@@ -2,6 +2,8 @@
 import image from "../../../public/assets/logo.png";
 import Image from "next/image";
 import Link from "next/link";
+import NavSavedButton from "..//buttons/NavSavedButton";
+import NavPlanButton from "..//buttons/NavPlanButton";
 
 const Navbar = () => {
     return (
@@ -18,9 +20,13 @@ const Navbar = () => {
                         <ul
                             tabIndex={-1}
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                            <li className="font-bold"><a>Workouts</a></li>
+                            <li className="font-bold">
+                                <Link href="/plan-lists" className="font-bold">Workouts</Link>
+                            </li>
 
-                            <li className="font-bold"><a>My Plans</a></li>
+                            <li className="font-bold">
+                                <Link href="/plan-lists" className="font-bold">My Plans</Link>
+                            </li>
                         </ul>
                     </div>
                     <div className="flex gap-1 items-center">
@@ -46,15 +52,17 @@ const Navbar = () => {
                             plan
                         </h1>
                         <button className="btn btn-circle">
-
-                        </button></div>
+                            <NavPlanButton />
+                        </button>
+                    </div>
                     <div className="flex items-center gap-1">
                         <h1 className="text-sm font-bold">
                             saved
                         </h1>
                         <button className="btn btn-circle">
-
-                        </button></div>
+                            <NavSavedButton />
+                        </button>
+                    </div>
                 </div>
             </div>
 

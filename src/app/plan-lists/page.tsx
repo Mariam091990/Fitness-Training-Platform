@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 import { LogsContext } from "../../context/LogsContext";
 import { IFitLog } from "../../type";
 import Link from "next/link";
+import { toast } from "react-toastify";
 
 const Planlistspage = () => {
     const { plan, saved, setPlan, setSaved } = useContext(LogsContext) as {
@@ -72,10 +73,13 @@ const Planlistspage = () => {
     const handleDelete = (id: number) => {
         if (activeTab === "plan") {
             const restOfthePlan = plan.filter((log) => log.id !== id)
+             toast.success("Workout deleted from plan");
             setPlan(restOfthePlan);
+           
         } else {
             const restOfthesSaved = saved.filter((log) => log.id !== id)
             setSaved(restOfthesSaved);
+            toast.success("Workout deleted from saved");
         }
     };
     return (
