@@ -292,12 +292,13 @@ const Planlistspage = () => {
                                         </Link>
                                     </button>
 
-                                    <button className={`btn btn-sm w-fit rounded-2xl border-gray-700  p-1.5 text-bold 
-                                    ${completedIds.includes(log.id) ? "bg-lime-400" : "bg-gray-700"} 
-                                   `}
-                                        onClick={() => handleDone(log.id)}> {`${completedIds.includes(log.id) ? "Done" : "Mark as Done"}`}
 
+                                    <button className={`btn btn-sm w-fit rounded-2xl border-gray-700  p-1.5 text-bold 
+                                    ${completedIds.includes(log.id) ? "bg-lime-400" : "bg-gray-700"} `} onClick={() => handleDone(log.id)}>
+                                        {`${completedIds.includes(log.id) ? "Done" : "Mark as Done"}`}
                                     </button>
+
+
                                     <button onClick={() => handleDelete(log.id)} className="btn btn-sm w-fit">Delete
 
                                     </button>
